@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "build": {
+      "implementation": "./src/executors/build/build.executor",
+      "schema": "./src/executors/build/schema.json",
+      "description": "Build a Shopify theme"
+    },
+    "serve": {
+      "implementation": "./src/executors/serve/serve.executor",
+      "schema": "./src/executors/serve/schema.json",
+      "description": "Serves a Shopify theme for local development"
+    },
+    "deploy": {
+      "implementation": "./src/executors/deploy/deploy.executor",
+      "schema": "./src/executors/deploy/schema.json",
+      "description": "Deploy a Shopify theme to Shopify"
+    }
+  },
+  "builders": {
+    "build": {
+      "implementation": "./src/executors/build/ng-compat",
+      "schema": "./src/executors/build/schema.json",
+      "description": "Build a Shopify theme"
+    },
+    "serve": {
+      "implementation": "./src/executors/serve/ng-compat",
+      "schema": "./src/executors/serve/schema.json",
+      "description": "Serves a Shopify theme for local development"
+    },
+    "deploy": {
+      "implementation": "./src/executors/deploy/ng-compat",
+      "schema": "./src/executors/deploy/schema.json",
+      "description": "Deploy a Shopify theme to Shopify"
+    }
+  }
+}

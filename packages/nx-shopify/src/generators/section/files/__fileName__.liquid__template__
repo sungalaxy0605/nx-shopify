@@ -1,0 +1,9 @@
+<div class="<%= fileName %>__container">
+</div>
+
+{% schema %}
+{
+  "name": "<%= className %>",
+  "settings": [
+  ]
+{% endschema %}

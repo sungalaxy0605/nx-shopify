@@ -1,0 +1,44 @@
+{
+  "npmScope": "trafilea",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "ZTc0ZDBjM2YtNWVkZS00ZTMwLWFhZWQtM2RiZGFlMzlmNjM0fHJlYWQ=",
+        "canTrackAnalytics": true,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "nx-shopify": {
+      "tags": []
+    },
+    "nx-shopify-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nx-shopify"]
+    },
+    "nx-shopify-docs": {
+      "tags": []
+    }
+  },
+  "workspaceLayout": {
+    "appsDir": "e2e",
+    "libsDir": "packages"
+  }
+}

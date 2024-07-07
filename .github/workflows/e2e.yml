@@ -1,0 +1,30 @@
+name: e2e
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  run_e2e:
+    name: Run e2e
+    runs-on: ubuntu-latest
+    env:
+      NX_BRANCH: ${{ github.event.number }}
+      NX_RUN_GROUP: ${{ github.run_id }}
+      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies and run test
+        run: |
+          yarn
+          yarn e2e nx-shopify-e2e

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Serve executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "buildTarget": {
+      "type": "string",
+      "description": "Name of the target to be used in the theme build process."
+    },
+    "analyze": {
+      "type": "boolean",
+      "description": "Analyze the generated bundle and open webpack-bundle-analyzer in the browser",
+      "default": false
+    },
+    "themekitEnv": {
+      "type": "string",
+      "description": "Name of the themekit config.yml environment to be used in the deployment",
+      "default": "development"
+    },
+    "allowLive": {
+      "type": "boolean",
+      "description": "Enables making changes to the Shopify Live Theme",
+      "default": false
+    },
+    "open": {
+      "type": "boolean",
+      "description": "Open theme preview in the broswer when the deployment is done.",
+      "default": false,
+      "alias": "o"
+    },
+    "skipFirstDeploy": {
+      "type": "boolean",
+      "description": "Tell if the first deploy should be skipped.",
+      "default": false
+    },
+    "devServerIpAddress": {
+      "type": "string",
+      "description": "Set the local web server ip address. Valid values are: private (default), public, <interface name>, <ip v4/6 address>",
+      "default": "private"
+    },
+    "proxyConfig": {
+      "type": "string",
+      "description": "Path to the proxy configuration file to be used"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["buildTarget"]
+}

@@ -1,0 +1,9 @@
+{% render 'webpack-public-path' %}
+<% for (var jsFile of htmlWebpackPlugin.files.js) { %>
+  <% var fileName = jsFile.split('/').pop(); %>
+  <% var src = `{{ '${fileName}' | asset_url }}` %>
+  <% if (htmlWebpackPlugin.options.isDevServer) { %>
+    <% src = jsFile %>
+  <% } %>
+  <script type="text/javascript" src="<%= src %>" defer></script>
+<% } %>
